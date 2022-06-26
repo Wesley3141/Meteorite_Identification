@@ -15,6 +15,6 @@ _____
 10) NET=models/meteorite_nometeorite
 11) DATASET=data/meteorite_nometeorite
 12) #Pull an Image#  imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/meteorite/MeteoriteImage\ \(1\).jpg MeteoriteImage.jpg 
-13) #Bring to Desktop #scp nvidia@192.168.55.1:/home/nvidia/jetson-inference/python/training/classification/MeteoriteImage.jpg C:\Users\User\Desktop    #THIS COULD VARY DEPENDING WHERE YOUR IMAGE IS SAVED)
+13) #Bring to Desktop #scp nvidia@192.168.55.1:/home/nvidia/jetson-inference/python/training/classification/MeteoriteImage.jpg C:\Users\User\Desktop ./    #THIS COULD VARY DEPENDING WHERE YOUR IMAGE IS SAVED)
 ____
 
