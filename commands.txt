@@ -1,0 +1,20 @@
+#COMMAND CODES
+#RUNS WITH JETSON NANO
+#MUST HAVE ETHERNET AND POWER SUPPLY
+#RUNNING FROM DEFAULT NVIDIA
+_____ 
+1) ssh nvidia@192.168.55.1
+2) cd  jetson-inference/python/training/classification/data
+3) wget "https://drive.google.com/uc?export=download&id=1MOz_pJrfWnKYu47ordPWGctBjKTRwNZK&amp;confirm=t" -O meteorite_nometeorite.tar.gz
+4) tar xvzf meteorite_nometeorite.tar.gz
+5) cd .. (back to jetson-inference)
+6) ./docker/run.sh
+7) cd python/training/classification
+8) python3 train.py --model-dir=models/meteorite_nometeorite data/meteorite_nometeorite --epochs=8 --resume=models/meteorite_nometeorite
+9) python3 onnx_export.py --model-dir=models/meteorite_nometeorite
+10) NET=models/meteorite_nometeorite
+11) DATASET=data/meteorite_nometeorite
+12) #Pull an Image#  imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/meteorite/MeteoriteImage\ \(1\).jpg MeteoriteImage.jpg 
+13) #Bring to Desktop #scp nvidia@192.168.55.1:/home/nvidia/jetson-inference/python/training/classification/MeteoriteImage.jpg C:\Users\User\Desktop
+____
+
